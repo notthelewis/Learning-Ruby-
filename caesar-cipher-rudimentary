@@ -1,0 +1,63 @@
+#!/usr/bin/ruby
+
+# First draft, works for SMALL phrases
+# Going to use modulus and other operands in order to make it so that the cipher can only result in letters of the alphabet. 
+
+#print 65.chr  ASCII Character for A
+#print 97.chr  ASCII Character for a
+
+i = 0
+lowerCase = 97
+upperCase = 65
+d = []
+e = 0
+
+# This loop just prints a key out at the top, for sanity checking more than anything.
+# The result is letters of the alphabet, upper and lower case, next to their respective ASCII numbers.
+
+while i <= 25
+  print lowerCase.chr + " "
+  print lowerCase.to_s + "      "
+  print upperCase.chr + "  "
+  print upperCase.to_s + " \n"
+  upperCase = upperCase + 1
+  lowerCase = lowerCase + 1
+  i = i + 1
+end
+
+puts "\n Please enter a word to translate"
+word = gets.strip
+
+# For each letter in the word, add the length of the word to the ASCII value. 
+# I.e. if you entered the word test:
+
+#      t = 116
+#      e = 101
+#      s = 115
+#      t = 116 
+      
+#    test.length = 4 
+#    t + 4 = 120 = x
+#    e + 4 = 105 = i
+#    s + 4 = 119 = w
+#    t + 4 = 120 = x        
+
+word.each_byte do |c|
+  d[e] = c + word.length
+  e = e + 1
+end
+
+print "\n"
+
+# Count length of array into arlen
+i = 0
+arlen = d.count
+
+# prints out the character version of each character in list.
+
+while i != arlen
+  print d[i].chr
+  i = i + 1
+end
+
+puts "\n"
