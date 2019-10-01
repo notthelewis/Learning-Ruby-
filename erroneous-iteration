@@ -1,0 +1,10 @@
+#!/usr/bin/ruby
+
+# .times is used to loop. I.e. loop everything in {} 5 times
+5.times { print "!\n" }
+
+# Starts at 3, goes up to 6. i is the variable name
+3.upto(6) { |i| print i }
+
+# prints all 25 characters in the alphabet
+('a'..'z').each {|char| print "\n" + char }
